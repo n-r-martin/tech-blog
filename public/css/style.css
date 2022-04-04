@@ -1,9 +1,70 @@
-.login-form {
+:root {
+  --typeface: 'Playfair Display', serif;
+  --black: #333;
+  --white: #fefefe;
+}
+
+html {
+  box-sizing: border-box;
+  font-family: var(--typeface);
+  color: var(--black);
+  background-color: var(--white);
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+  margin: 0;
+  padding: 0;
+}
+
+header {
+  background-color: var(--white);
+  height: 64px;
+  border-bottom: solid 2px var(--black);
+  position: relative;
+}
+
+h1 {
+  position: absolute;
+  top: 50%;
+  left: 1rem;
+  transform: translateY(-50%);
+}
+
+nav {
+  position: absolute;
+  top: 50%;
+  right: 2rem;
+  transform: translateY(-50%);
+}
+
+nav ul {
+  list-style-type: none;
+  display: flex;
+  flex-direction: row;
+  gap: 16px;
+}
+
+nav ul li {
+  display: inline;
+}
+
+a {
+  color: var(--black);
+}
+
+main {
+  width: 90%;
+  margin: auto;
+  margin-top: 2rem;
+}
+
+/* .login-form {
   background: #333;
   color: #e8e8e8;
 }
 
 .login-button {
   background-image: linear-gradient(to right, red , yellow);
-}
+} */
 
