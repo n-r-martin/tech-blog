@@ -1,73 +1,53 @@
-const router = require('express').Router();
-const { ModelOne, ModelTwo } = require('../models');
+const router = require("express").Router();
+const { User, BlogEntry } = require("../models");
 
-router.get('/', async (req, res) => {
+router.get("/", async (req, res) => {
   try {
-    // const queryOneData = await ModelOne.findAll();
-    // const ContentData = {
-    //   "id": queryOneData[0].dataValues.id,
-    //   "content": queryOneData[0].dataValues.content,
-    // };
+    const blogEntryData = await BlogEntry.findAll({
+      include: [
+        {
+          model: User,
+          attributes: ["username"],
+        },
+      ],
+    });
 
-    // const queryTwoData = await ModelTwo.findAll();
-    // const subContentData = {
-    //   "id": queryTwoData[0].dataValues.id,
-    //   "SubContent": queryTwoData[0].dataValues.SubContent,
-    //   "one_id": queryTwoData[0].dataValues.one_id,
-    // };
+    // Serialize data so the template can read it
+    const blogEntries = blogEntryData.map((blogEntry) => blogEntry.get({ plain: true }));
 
-    // res.render('content', { 
-    //   ContentData, 
-    //   subContentData 
-    // });
-    res.status(200).render('landingpage');
+    // Pass serialized data and session flag into template
+    res.render("landingpage", {
+      blogEntries,
+    });
   } catch (err) {
     res.status(500).json(err);
   }
 });
 
-router.get('/login', async (req, res) => {
+router.get("/dashboard", async (req, res) => {
   try {
-    res.status(200).render('login');
+    res.status(200).render("dashboard");
   } catch (err) {
-    res.status(500).json(err)
+    res.status(500).json(err);
   }
-})
+});
 
-router.get('/signup', async (req, res) => {
+router.get("/login", async (req, res) => {
   try {
-    res.status(200).render('signup');
+    res.status(200).render("login");
   } catch (err) {
-    res.status(500).json(err)
+    res.status(500).json(err);
   }
-})
+});
 
-// router.get('/loggedin', async (req, res) => {
-//   try {
-//     const queryOneData = await ModelOne.findAll();
-//     const ContentData = {
-//       "id": queryOneData[0].dataValues.id,
-//       "content": queryOneData[0].dataValues.content,
-//     };
-
-//     const queryTwoData = await ModelTwo.findAll();
-//     const subContentData = {
-//       "id": queryTwoData[0].dataValues.id,
-//       "SubContent": queryTwoData[0].dataValues.SubContent,
-//       "one_id": queryTwoData[0].dataValues.one_id,
-//     };
-
-//     res.render('logged-in-content', { 
-//       ContentData, 
-//       subContentData,
-//       logged_in: req.session.logged_in 
-//     });
-//   } catch (err) {
-//     res.status(500).json(err);
-//   }
-// });
-
-
+router.get("/signup", async (req, res) => {
+  try {
+    res.status(200).render("signup");
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
 
 module.exports = router;
+
 

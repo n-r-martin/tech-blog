@@ -1,13 +1,13 @@
-const ModelOne = require('./model-one');
-const ModelTwo = require('./model-two');
 const User = require('./User');
+const BlogEntry = require('./BlogEntry');
 
-ModelOne.hasMany(ModelTwo, {
-  foreignKey: 'one_id',
+
+User.hasMany(BlogEntry, {
+  foreignKey: 'user_id'
+})
+
+BlogEntry.belongsTo(User, {
+  foreignKey: 'user_id'
 });
 
-ModelTwo.belongsTo(ModelOne, {
-  foreignKey: 'one_id'
-});
-
-module.exports = { ModelOne, ModelTwo, User };
+module.exports = { User, BlogEntry };

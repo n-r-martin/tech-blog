@@ -29,6 +29,7 @@ h1 {
   top: 50%;
   left: 1rem;
   transform: translateY(-50%);
+  margin: 0;
 }
 
 nav {
@@ -56,15 +57,60 @@ a {
 main {
   width: 90%;
   margin: auto;
-  margin-top: 2rem;
+  margin-top: 4rem;
 }
 
-/* .login-form {
-  background: #333;
-  color: #e8e8e8;
+
+
+.pure-form {
+  background: var(--white);
+  width: 95%;
+  max-width: 600px;
+  margin: auto;
+  border: 2px solid var(--black);
+  padding: 1rem;
+  border-radius: 5px;
 }
 
-.login-button {
-  background-image: linear-gradient(to right, red , yellow);
-} */
+.pure-form .form-title {
+  font-size: 1.6em;
+  font-weight: 700;
+  margin-bottom: 2rem !important;
+}
+
+.pure-form input {
+  width: 60%;
+}
+
+.pure-form button {
+  background-color: var(--black);
+  color: var(--white);
+  border: none;
+  border-radius: 5px;
+  padding: .5rem 1rem;
+  margin-bottom: 2rem;
+}
+
+.pure-form button:hover {
+  background-color: #111;
+}
+
+.pure-form p,
+.pure-form input {
+  margin-bottom: 1rem !important;
+}
+
+
+/***** Blog Entry Styles *****/
+
+div.blog-entry-container {
+  margin-bottom: 3rem;
+}
+
+h2.blog-entry-title {
+  margin-bottom: 1rem;
+}
+
+
+
 
