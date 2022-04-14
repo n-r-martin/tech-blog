@@ -95,9 +95,15 @@ main {
   background-color: #111;
 }
 
-.pure-form p,
 .pure-form input {
   margin-bottom: 1rem !important;
+  padding: 0.5em 0.6em;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    vertical-align: middle;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
 }
 
 

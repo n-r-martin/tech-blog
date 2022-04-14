@@ -1,12 +1,16 @@
-<form class="pure-form pure-form-stacked login-form">
+<form class="pure-form pure-form-stacked signup-form">
     <fieldset>
         <p class="form-title" >Sign Up</p>
+        <label for="stacked-username">Username</label>
+        <input type="username" id="username-signup" class="pure-u-md-1-6" placeholder="Username" />
         <label for="stacked-email">Email</label>
-        <input type="email" id="stacked-email" class="pure-u-md-1-6" placeholder="Email" />
+        <input type="email" id="email-signup" class="pure-u-md-1-6" placeholder="Email" />
         <label for="stacked-password">Password</label>
-        <input type="password" id="stacked-password" class="pure-u-md-1-6" placeholder="Password" />
+        <input type="password" id="password-signup" class="pure-u-md-1-6" placeholder="Password" />
 
-        <button type="submit" class="login-button">Sign Up</button>
+        <button type="submit" class="signup-button">Sign Up</button>
         <span class="pure-form-message">Have an account? <a href="./login">Log In</a></span>
     </fieldset>
 </form>
+
+<script src="./js/signup.js"></script>
