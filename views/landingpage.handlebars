@@ -3,10 +3,11 @@
 <div class="blog-entry-container">
     <h2 class="blog-entry-title">{{blogEntry.title}}</h2>
 
-    <p>Created by {{blogEntry.user.username}} on {{format_date blogEntry.date_created}}</p>
+    <p id="entry-author">Created by {{blogEntry.user.username}} on <span id="entry-date">{{format_date blogEntry.date_created}}</span></p>
 
+    <p id="entry-body">{{blogEntry.body}}</p>
 
-    <p>{{blogEntry.body}}</p>
+    <a href="#" class="read-more-link">read more</a>
     
 </div>
 {{/each}}

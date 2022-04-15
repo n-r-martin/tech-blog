@@ -82,6 +82,51 @@ router.get("/signup", async (req, res) => {
   }
 });
 
+router.get('/entry/:id', async (req, res) => {
+  try {
+    // Get all projects with user data
+    const entryData = await BlogEntry.findByPk(req.params.id, {
+      include: [
+        {
+          model: User,
+          attributes: ['username'],
+        },
+        {
+          model: Comment,
+          attributes: ['body', 'user_id', 'date_created'],
+          include: [
+            {
+              model: User,
+              attributes: ['username'],
+            },
+          ]
+        },
+      ],
+    });
+    let user;
+    if (req.session.logged_in) {
+      const userData = await User.findByPk(req.session.user_id, {
+        attributes: { exclude: ['password'] },
+      });
+      user = userData.get({ plain: true });
+    }; 
+    // Serialize data so the template can read it
+    const entries = entryData.get({ plain: true });
+    let commentAry = [];
+    commentAry.push(posts.comments);
+    // Pass data to view
+    res.render('singleentry', { 
+      ...user,
+      entries,
+      commentAry, 
+      logged_in: req.session.logged_in,
+      title: "Tech Blog"
+    });
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
 module.exports = router;
 
 
