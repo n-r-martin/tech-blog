@@ -1,7 +1,7 @@
 const User = require('./User');
 const BlogEntry = require('./BlogEntry');
 const Comment = require('./Comment');
-const { post } = require('../controllers/publicRoutes');
+const { entry } = require('../controllers/publicRoutes');
 
 
 User.hasMany(BlogEntry, {

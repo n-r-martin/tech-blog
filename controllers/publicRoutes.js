@@ -1,5 +1,5 @@
 const router = require("express").Router();
-const { User, BlogEntry } = require("../models");
+const { User, BlogEntry, Comment } = require("../models");
 
 router.get("/", async (req, res) => {
   try {
@@ -19,12 +19,12 @@ router.get("/", async (req, res) => {
     res.render("landingpage", {
       blogEntries,
       logged_in: req.session.logged_in,
+      title: 'Tech Blog'
     });
   } catch (err) {
     res.status(500).json(err);
   }
 });
-
 
 router.get("/dashboard", async (req, res) => {
   try {
@@ -82,7 +82,7 @@ router.get("/signup", async (req, res) => {
   }
 });
 
-router.get('/entry/:id', async (req, res) => {
+router.get('/entries/:id', async (req, res) => {
   try {
     // Get all projects with user data
     const entryData = await BlogEntry.findByPk(req.params.id, {
@@ -113,7 +113,7 @@ router.get('/entry/:id', async (req, res) => {
     // Serialize data so the template can read it
     const entries = entryData.get({ plain: true });
     let commentAry = [];
-    commentAry.push(posts.comments);
+    commentAry.push(entries.comments);
     // Pass data to view
     res.render('singleentry', { 
       ...user,
