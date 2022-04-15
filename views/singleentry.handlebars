@@ -1,1 +1,45 @@
-<h1>hello?</h1>
+<section id="blog-entry-container">
+    <h2 class="blog-entry-title">{{entries.title}}</h2>
+
+    <p id="entry-author">Created by {{entries.user.username}} on <span id="entry-date">{{format_date entries.date_created}}</span></p>
+
+    <p id="entry-body">{{entries.body}}</p>
+</section>
+
+<section id="comments-container">
+<h3 class="comments-header">comments:</h3>
+
+{{#each commentAry.[0] }}
+    <div class="comment-container">
+        <p class="comment-body">{{body}}</p>
+
+        <div class="commen-author-date-container">
+        <span>{{user.username}}</span><span class="on-preposition"> on </span></span><span class="date-posted">{{format_date date_created}}</span>
+        </div>
+    </div>
+{{/each}}
+
+{{!-- {{#if logged_in}}
+<div class="box">
+  <div class="flex-head">
+      <span class="head-title">Add New Comment: (Current Logged In User: {{name}})</span>
+  </div>
+  <div class="flex-content">
+    <form class="form new-comment-form">
+      <div class="form-group">
+        <label for="post-content">Comment: (512 character max)</label><br>
+        <textarea class="form-input" id="new-comment-input" name="post-content" maxlength="512" rows="5"></textarea>
+      </div>
+      <div class="form-group">
+        <button class="btn btn-primary" type="submit">Add New Comment</button>
+      </div>
+    </form>
+  </div>
+</div> 
+{{/if}} --}}
+
+</section>
+
+{{#if logged_in}}
+<script src="/js/newcomment.js"></script>
+{{/if}}
