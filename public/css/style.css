@@ -2,6 +2,7 @@
   --typeface: 'Playfair Display', serif;
   --black: #333;
   --white: #fefefe;
+  --content-width: 640px;
 }
 
 html {
@@ -58,9 +59,12 @@ main {
   width: 90%;
   margin: auto;
   margin-top: 4rem;
+  margin-bottom: 10rem;
 }
 
-
+input:focus, textarea:focus {
+  outline: var(--black);
+}
 
 .pure-form {
   background: var(--white);
@@ -146,19 +150,88 @@ section#comments-container {
 div.comment-container {
   border: 1px solid var(--black);
   padding: 2rem;
-  max-width: 640px;
+  max-width: var(--content-width);
   margin: 1rem 0;
 }
 
 p.comment-body {
   padding-bottom: .5rem;
-  border-bottom: 1px solid var(--black);
-  margin-bottom: .5rem;
+  margin-bottom: 2rem;
 }
 
 span.on-preposition {
   font-weight: 700;
 }
+
+div#login-linkto-component {
+  max-width: var(--content-width);
+  margin: 2rem 0;
+  border-top: 1px solid var(--black);
+  padding-top: 1rem;
+}
+
+a.inline-link {
+  font-weight: 700;
+}
+
+div.comment-entry-container {
+  border-top: 1px solid;
+    padding: 1rem 0;
+    margin: 2rem 0;
+    max-width: var(--content-width);
+}
+
+.comment-entry-container textarea {
+  width: 100%;
+  resize: none; 
+  margin: 1rem 0;
+  padding: 1rem;
+}
+
+button.comment-submit-button {
+  float: right;
+  padding: .5rem 1rem;
+  clear: both;
+  cursor: pointer;
+  width: 128px;
+}
+
+/***** Create New Entry Page Styles *****/
+
+div.new-entry-container {
+  width: 720px;
+}
+
+form.new-entry-form {
+  margin-top: 2rem;
+}
+
+.new-entry-form #title-input {
+  width: 100%;
+  font-size: 2em;
+  padding: 1rem;
+  border: none;
+  border-bottom: 1px solid var(--black);
+}
+
+.new-entry-form textarea {
+  width: 100%;
+  min-height: 160px;
+  resize: none; 
+  margin: 1rem 0;
+  padding: 1rem;
+  border: none;
+}
+
+button.new-entry-submit-button {
+  float: right;
+  padding: .5rem 1rem;
+  clear: both;
+  cursor: pointer;
+  width: 160px;
+}
+
+
 
 
 

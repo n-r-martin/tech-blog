@@ -64,23 +64,68 @@ router.get("/dashboard", async (req, res) => {
   }
 });
 
-
-router.get("/login", async (req, res) => {
+router.get("/create-entry", async (req, res) => {
   try {
-    res.status(200).render("login");
+    if (req.session.logged_in) {
+      const userData = await User.findByPk(req.session.user_id, {
+        attributes: { exclude: ['password'] },
+      });
+
+      const user = userData.get({ plain: true });
+  
+      res.render('createentry', {
+        ...user,
+        logged_in: req.session.logged_in,
+        title: "Create New Entry"
+      });
+    } else {
+      res.status(200).redirect("login")
+    }
+   
   } catch (err) {
     res.status(500).json(err);
   }
 });
 
 
-router.get("/signup", async (req, res) => {
+router.get('/login', async (req, res) => {
   try {
-    res.status(200).render("signup");
+
+  if (req.session.logged_in) {
+    res.redirect('/dashboard');
+    return;
+  }
+  
+  else {
+    res.render('login', { 
+      title: "Tech Blog" 
+    });
+  }
+
   } catch (err) {
     res.status(500).json(err);
   }
 });
+
+
+router.get('/signup', async (req, res) => {
+  try {
+
+    if (req.session.logged_in) {
+      res.redirect('/dashboard');
+      return;
+    }
+    
+    else {
+      res.render('signup', { 
+        title: "Tech Blog" 
+      });
+    }
+  
+    } catch (err) {
+      res.status(500).json(err);
+    }
+  });
 
 router.get('/entries/:id', async (req, res) => {
   try {

@@ -17,14 +17,17 @@
 
       <nav>
         <ul>
+          {{#if logged_in}}
+          <li><a href="/create-entry">Create New Entry</a></li>
+          {{/if}}
           <li><a href="/">Home</a></li>
           <li><a href="/dashboard">Dashboard</a></li>
           {{!-- Dynamically display menu options based on whether or not user is logged in --}}
           {{#if logged_in}}
-          <li><a href="./logout" id="logout">Log out</a></li>
+          <li><a href="/logout" id="logout">Log out</a></li>
           {{else}}
-          <li><a href="./login" id="login">Log In</a></li>
-          <li><a href="./signup" id="signup">Sign Up</a></li>
+          <li><a href="/login" id="login">Log In</a></li>
+          <li><a href="/signup" id="signup">Sign Up</a></li>
           {{/if}}
         </ul>
       </nav>

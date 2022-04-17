@@ -1,0 +1,14 @@
+{{#if logged_in}}
+<div class="new-entry-container">
+    <h3>create new entry:</h3>
+
+    <form class="form new-entry-form">
+
+    <input class="form-input" type="text" id="title-input" name="title-name" placeholder="Entry Title"/>
+    <textarea class="body-input" id="body-input" name="post-content" maxlength="255" rows="5" placeholder="Entry Body"></textarea>
+    <button class="new-entry-submit-button" type="submit">Save &#38; Submit</button>
+    </form>
+</div>
+
+<script src="/js/new-entry.js"></script>
+{{/if}}
