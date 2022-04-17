@@ -1,53 +1,49 @@
-<h1 align="center"> Next Gen Event Tracker <h1>
+# Tech Blog
 
 ![badge](https://img.shields.io/badge/license-MIT-blue)
 
 ## Description
+This a simple blog application that runs on Heroku using the JAWS DB resource as a database to manage users, blog entries, comments, etc. 
 
+![Image showing the landing page for the tech blog site](./readme-assets/tech-blog-screenshot.png)
 
 ## Table of Contents
 - [Description](#description) 
-- [User Stories](#user-stories)  
 - [Installation](#installation)
 - [Contribution](#contribution)
 - [License](#license)
-- [Usage](#usage)
 - [Questions](#questions)
   
-## User Stories
-As a user, I want to view events for a specific area/region </br>
-As a user, I want to have a profile specific user experience </br>
-As a user, I want to submit an event into the database to contribute to the community. </br>
-As a developer, I want to access community submitted events via api and use in my app. </br>
 
 ## Installation
-1. update ./config/connection.js and the root/ .env as needed for your database info.
-2. Run ./db/schema.sql using mysql console
-3. Run npm i from terminal
-4. Run npm run seed from terminal
-5. Run npm start from terminal
-App will listen on :3001 if running from localhost, or data from process.env.PORT if running from app server (i.e. Heroku)
+1. Clone repo from gitHub via SSH or HTTPS
+2. Open the application at the root level in a terminal window
+3. Run 'npm i'  
+4. Delete .EXAMPLE from the .env and input your mysql crednetials. For the DB_NAME variable, assign a value of 'techblog'
+4. Log into mysql and run 'source db/schema.sql' ... you can quit mysql at this time
+5. (Optional) Run 'npm run seed' to seed the database with the provided examples
+6. Run 'npm start' 
+7. In a web browser, navigate to port where application is running. 
+App will listen on PORT :3001 if running from localhost, or data from process.env.PORT if running from app server (i.e. Heroku)
 <http://localhost:3001> will render a webpage with data from both tables
-<http://localhost:3001/api/routeone> will return data from modelone table
-<http://localhost:3001/api/routetwo> will return data from modeltwo table
+
 App will use local .env for database connection if running from localhost, or data from process.env if running from app server (i.e. Heroku)
 App will use local .env and settings in connection.js for database connection if running from localhost, or data from process.env to include JAWS_DB if running from app server (i.e. Heroku)
 
+## Live Application
+
+[Deployed on Heroku](https://whispering-lake-40358.herokuapp.com/)
+
 ## Contribution
-Follow basic contribution guidelines and coding etiquette, please.
+If you'd like to contribute, ask to be added to the project as collaborator. Once added, submit a pull request for any changes made to the codebase. Follow basic contribution guidelines and coding etiquette, please.
 
 ## License
 ![badge](https://img.shields.io/badge/license-MIT-blue)</br>
 
 This project is covered by MIT
 
-  
-## Usage
-
-
 ## Questions
 Look for us on GitHub at: 
-- [Nick M](https://github.com/n-r-martin "Nick's link")  
-- [Mike J](https://github.com/GittinIt6 "Nick's link")
-- [Spencer K](https://github.com/Skerans "Spencer's link")
+* [n-r-martin](https://github.com/n-r-martin)  
+* hello@nickmartin.design
 
