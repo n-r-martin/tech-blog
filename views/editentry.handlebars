@@ -1,0 +1,14 @@
+{{#if logged_in}}
+<div class="edit-entry-container">
+    <h3>edit entry for ID: <span id="entry-id">{{entry.id}}</span></h3>
+
+    <form class="form edit-entry-form">
+
+    <input class="form-input" type="text" id="title-input" name="title-name" value="{{entry.title}}"/>
+    <textarea class="body-input" id="body-input" name="post-content">{{entry.body}}</textarea>
+    <button class="new-entry-submit-button" type="submit">save &#38; submit</button>
+    </form>
+</div>
+
+<script src="/js/edit-entry.js"></script>
+{{/if}}

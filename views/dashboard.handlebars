@@ -1,18 +1,18 @@
 <h3 id="my-entries-title">my entries:</h3>
 
-<a href="/create-entry" id="dashboard-create-entry-btn"">Create New Entry</a>
+<a href="/create-entry" id="dashboard-create-entry">Create New Entry</a>
 
 <!-- Loop over each object in the projects array -->
 {{#each entries as |entry| }}
 <div class="blog-entry-container">
     <h2 class="blog-entry-title">{{entry.title}}</h2>
 
-    <p id="entry-author">Created by {{blogEntry.user.username}} on <span id="entry-date">{{format_date entry.date_created}}</span></p>
+    <p id="entry-author">Created on <span id="entry-date">{{format_date entry.date_created}}</span></p>
 
     <p id="entry-body">{{entry.body}}</p>
 
     <div class="dashboard-ui-btns">
-        {{!-- <button class="entry-delete-btn" data-id="{{entry.id}}">edit</button> --}}
+        <a href="edit-entry/{{entry.id}}" class="edit-entry-link">edit</a>
         <button class="delete-entry-btn" data-id="{{entry.id}}">delete</button>
     </div>
 </div>

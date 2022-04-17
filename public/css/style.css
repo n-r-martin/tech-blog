@@ -110,6 +110,10 @@ input:focus, textarea:focus {
     box-sizing: border-box;
 }
 
+p, textarea {
+  line-height: 1.5;
+}
+
 
 /***** Blog Entry Styles *****/
 
@@ -198,15 +202,15 @@ button.comment-submit-button {
 
 /***** Create New Entry Page Styles *****/
 
-div.new-entry-container {
+div.new-entry-container, div.edit-entry-container {
   width: 720px;
 }
 
-form.new-entry-form {
+form.new-entry-form, form.edit-entry-form {
   margin-top: 2rem;
 }
 
-.new-entry-form #title-input {
+.new-entry-form #title-input, .edit-entry-form #title-input {
   width: 100%;
   font-size: 2em;
   padding: 1rem;
@@ -214,16 +218,17 @@ form.new-entry-form {
   border-bottom: 1px solid var(--black);
 }
 
-.new-entry-form textarea {
+.new-entry-form textarea, .edit-entry-form textarea {
   width: 100%;
-  min-height: 160px;
+  height: 320px;
   resize: none; 
   margin: 1rem 0;
   padding: 1rem;
   border: none;
+  overflow: auto;
 }
 
-button.new-entry-submit-button {
+button.new-entry-submit-button, button.edit-entry-submit-button {
   float: right;
   padding: .5rem 1rem;
   clear: both;
@@ -237,7 +242,7 @@ button.new-entry-submit-button {
   margin-bottom: 2rem;
 }
 
-a#dashboard-create-entry-btn {
+a#dashboard-create-entry {
   padding: 1rem 1rem;
   font-size: 1.2em;
   display: inline-block;
@@ -251,7 +256,7 @@ a#dashboard-create-entry-btn {
   transition: background-color .3s;
 }
 
-#dashboard-create-entry-btn:hover {
+#dashboard-create-entry:hover {
   background-color: #222;
 }
 
@@ -262,17 +267,20 @@ div.dashboard-ui-btns {
   gap: 16px;
 }
 
-.dashboard-ui-btns .delete-entry-btn {
+.dashboard-ui-btns button, .dashboard-ui-btns a {
   padding: .5rem 1rem;
   cursor: pointer;
   width: 128px;
   transition: background-color .3s;
+  text-align: center;
+  outline: none;
 }
 
 .delete-entry-btn:hover {
   background-color: red;
+  border-color: red;
   color: var(--white);
-  border: none;
+  border-style: solid;
 }
 
 

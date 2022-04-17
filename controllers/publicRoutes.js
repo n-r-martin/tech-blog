@@ -172,6 +172,25 @@ router.get('/entries/:id', async (req, res) => {
   }
 });
 
+
+router.get("/edit-entry/:id", async (req, res) => {
+  try {
+    const entryData = await BlogEntry.findByPk(req.params.id);
+
+    const entry = entryData.get({ plain: true });
+
+    res.render('editentry', {
+        entry,
+        logged_in: req.session.logged_in,
+    });
+
+    // catches any errors
+} catch (err) {
+    console.log(err);
+    res.status(500).json(err);
+}
+});
+
 module.exports = router;
 
 

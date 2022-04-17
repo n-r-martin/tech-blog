@@ -25,6 +25,31 @@ router.post('/', withAuth, async (req, res) => {
 }
 });
 
+// Route for updating - data route only
+router.put('/:id', withAuth, async (req, res) => {
+  try {
+    const entryData = await BlogEntry.update({
+      title: req.body.entryTitle,
+      body: req.body.entryBody
+    },
+    {
+      where: {
+        id: req.params.id,
+      },
+    });
+
+    if (!entryData) {
+      res.status(404).json({ message: 'No entry found with this id!' });
+      return;
+    }
+
+    res.status(200).json(entryData)
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+ 
+
 router.delete('/:id', withAuth, async (req, res) => {
   try {
     const entryData = await BlogEntry.destroy({
