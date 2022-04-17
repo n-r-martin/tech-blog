@@ -231,6 +231,52 @@ button.new-entry-submit-button {
   width: 160px;
 }
 
+/***** Dashboard Styles *****/
+
+#my-entries-title {
+  margin-bottom: 2rem;
+}
+
+a#dashboard-create-entry-btn {
+  padding: 1rem 1rem;
+  font-size: 1.2em;
+  display: inline-block;
+  background-color: var(--black);
+  color: var(--white);
+  text-decoration: none;
+  position: fixed;
+  border-radius: 2px;
+  bottom: 1rem;
+  right: 1rem;
+  transition: background-color .3s;
+}
+
+#dashboard-create-entry-btn:hover {
+  background-color: #222;
+}
+
+div.dashboard-ui-btns {
+  margin-top: 1.5rem;
+  display: flex;
+  flex-direction: row;
+  gap: 16px;
+}
+
+.dashboard-ui-btns .delete-entry-btn {
+  padding: .5rem 1rem;
+  cursor: pointer;
+  width: 128px;
+  transition: background-color .3s;
+}
+
+.delete-entry-btn:hover {
+  background-color: red;
+  color: var(--white);
+  border: none;
+}
+
+
+
 
 
 
